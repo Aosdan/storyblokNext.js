@@ -10,10 +10,14 @@ import { Testimonial } from "./Testimonial";
 import { RecommendedTours} from "./RecommendedTours";
 const accessToken =
   process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN || process.env.STORYBLOK_ACCESS_TOKEN;
+const region = process.env.NEXT_PUBLIC_STORYBLOK_REGION as "us" | "eu" | undefined;
 
 storyblokInit({
   accessToken,
   use: [apiPlugin],
+  apiOptions: {
+    region,
+  },
   components: {
     tour: Tour,
     page: Page,
