@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import { RenderStory } from "@/app/components/RenderStory";
+import { draftMode } from "next/headers";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -14,11 +15,11 @@ export const generateStaticParams = async () => {
   return response.data.stories.map((story) => ({slug: story.slug}));
 };
 const fetchTourPage = async (slug: string) => {
+  const { isEnabled } = await draftMode();
   const client = getStoryblokApi();
   try {
     const response = await client.get(`cdn/stories/tours/${slug}`, {
-    
-      version: process.env.NODE_ENV === "development" ? "draft" : "published",
+      version: (process.env.NODE_ENV === "development" || isEnabled) ? "draft" : "published",
     });
     return response.data.story;
   } catch (error: unknown) {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+
 import { StoryblokStory } from "@/lib/types";
 
 export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
@@ -26,7 +27,7 @@ export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
     
     console.log("Final imageUrl:", finalImageUrl);
     return (
-        <div className="shadow-lg rounded-md p-3 mx-20  ">
+        <div className="font-mono shadow-lg rounded-md p-3  ">
             {finalImageUrl ? (
             
                 <Image
@@ -35,7 +36,7 @@ export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
                     alt={title}
                     width={300}
                     height={200}
-                    className="aspect-video object-cover w-full h-98 rounded-lg"       
+                    className="aspect-video object-cover w-full h-90  rounded-lg"       
                             
                 />
             ) : (

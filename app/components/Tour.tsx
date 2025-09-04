@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { renderRichText, type StoryblokRichTextNode } from "@storyblok/react/rsc";
+import { renderRichText, SbBlokData, storyblokEditable, type StoryblokRichTextNode } from "@storyblok/react/rsc";
 import { StoryblokBlok } from "@/lib/types";
 
 export const Tour = ({ blok }: { blok: StoryblokBlok }) => {
@@ -8,7 +8,7 @@ export const Tour = ({ blok }: { blok: StoryblokBlok }) => {
     const intro = (blok?.introduction ?? "") as string;
 
     return (
-        <main className="container mx-auto px-4 w-full py-16 w-full pt-32 pb-32">
+        <main {...storyblokEditable(blok as unknown as SbBlokData)} className="font-mono container mx-auto px-4 w-full py-16 w-full pt-32 pb-32">
             <h1 className="text-3xl md:text-5xl font-bold">{title}</h1>
             {imageSrc ? (
                 <Image className="mt-12" src={imageSrc} alt={title} width={1000} height={600} />
