@@ -8,6 +8,7 @@ export interface StoryblokContent {
   _uid?: string;
   name?: string;
   headline?: string;
+  subheading?: string;
   content?: string;
   introduction?: string;
   body?: unknown; // Rich text content
@@ -40,6 +41,7 @@ export interface StoryblokBlok {
   _uid: string;
   component: string;
   headline?: string;
+  subheading?: string;
   name?: string;
   content?: string;
   introduction?: string;

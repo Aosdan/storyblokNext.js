@@ -27,37 +27,41 @@ export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
     
     console.log("Final imageUrl:", finalImageUrl);
     return (
-        <div className="font-mono shadow-lg rounded-md p-3  ">
+        <div className="bg-white rounded-xl border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-shadow">
             {finalImageUrl ? (
-            
                 <Image
-                 
-                    src={finalImageUrl} 
+                    src={finalImageUrl}
                     alt={title}
-                    width={300}
-                    height={200}
-                    className="aspect-video object-cover w-full h-90  rounded-lg"       
-                            
+                    width={800}
+                    height={600}
+                    className="aspect-video w-full object-cover rounded-t-xl"
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                 />
             ) : (
-                <div className=" w-full h-48 bg-gray-200 rounded-lg flex items-center justify-center">
-                    <span className="text-gray-500">No image available</span>
+                <div className="w-full h-48 bg-zinc-100 rounded-t-xl flex items-center justify-center">
+                    <span className="text-zinc-500">No image available</span>
                 </div>
             )}
-            <Link className="p-8" href={`/${slug}`}>
-                <div className="text-shadow-sm text-gray-600 flex gap-4 justify-between text-lg font-bold">
-                <h3 className="text-gray-600">{title}</h3>
-                {story?.content?.price ? Number(story.content.price).toLocaleString("en-US", {
-                    style: "currency",
-                    currency: "TWD",
-                    minimumFractionDigits: 0,
-                }) : "Price not available"}</div>
-            </Link>
-            <p className="text-gray-300 uppercase font-bold mt-2 text-sm tracking-wide">{story?.content?.nestedContent?.location ? `${story.content.nestedContent.location}, Taiwan` : "Taiwan"}</p>
-            <Link className="font-bold text-base mt-8 block underline" href={`/${slug}`}>View Tour</Link>
-            
+            <div className="p-5 sm:p-6">
+                <Link href={`/${slug}`} className="block">
+                    <div className="flex items-start justify-between gap-4">
+                        <h3 className="text-zinc-900 font-semibold text-lg leading-snug line-clamp-2">{title}</h3>
+                        <div className="shrink-0 text-zinc-700 font-semibold">
+                            {story?.content?.price ? Number(story.content.price).toLocaleString('en-US', {
+                                style: 'currency',
+                                currency: 'TWD',
+                                minimumFractionDigits: 0,
+                            }) : '—'}
+                        </div>
+                    </div>
+                </Link>
+                <p className="text-zinc-500 uppercase font-semibold mt-2 text-xs tracking-wide">
+                    {story?.content?.nestedContent?.location ? `${story.content.nestedContent.location}, Taiwan` : 'Taiwan'}
+                </p>
+                <Link className="mt-5 inline-flex items-center text-emerald-700 font-medium hover:underline" href={`/${slug}`}>
+                    View Tour
+                </Link>
+            </div>
         </div>
-        
-        
     );
 };
