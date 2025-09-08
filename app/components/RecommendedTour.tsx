@@ -27,7 +27,7 @@ export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
     
     console.log("Final imageUrl:", finalImageUrl);
     return (
-        <div className="bg-white rounded-xl border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-shadow">
+        <div className=" rounded-xl border border-zinc-200 bg-white shadow-sm hover:shadow-md transition-shadow">
             {finalImageUrl ? (
                 <Image
                     src={finalImageUrl}

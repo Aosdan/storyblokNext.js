@@ -49,6 +49,21 @@ export interface StoryblokBlok {
   tours?: StoryblokStory[];
   items?: StoryblokBlok[];
   blocks?: StoryblokBlok[];
+  days?: Array<{
+    _uid: string;
+    dayTitle?: string;
+    description?: string;
+    image?: StoryblokImage | string;
+    location?: string;
+    lat?: number;
+    lng?: number;
+  }>;
+  markers?: Array<{
+    _uid: string;
+    label?: string;
+    lat: number;
+    lng: number;
+  }>;
   image?: StoryblokImage;
   main_image?: StoryblokImage;
   price?: number;
