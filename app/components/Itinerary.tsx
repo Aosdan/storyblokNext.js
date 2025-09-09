@@ -20,7 +20,7 @@ export const Itinerary = ({ blok }: { blok: StoryblokBlok & { days?: ItineraryDa
     <section {...storyblokEditable(blok as unknown as SbBlokData)} className="bg-gray-800 py-12 md:py-16">
       <div className=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {blok.headline && (
-          <h2 className=" text-center text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-zinc-900 text-gray-800">
+          <h2 className="text-center text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-zinc-900r ">
             {blok.headline}
           </h2>
         )}

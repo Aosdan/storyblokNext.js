@@ -12,6 +12,8 @@ import { Itinerary } from "./Itinerary";
 import { Map } from "./Map";
 import { Marker } from "./Marker";
 import { Day } from "./Day";
+import { About } from "./About";
+
 const accessToken =
   process.env.NEXT_PUBLIC_STORYBLOK_ACCESS_TOKEN || process.env.STORYBLOK_ACCESS_TOKEN;
 const region = process.env.NEXT_PUBLIC_STORYBLOK_REGION as "us" | "eu" | undefined;
@@ -35,6 +37,7 @@ storyblokInit({
     map: Map,
     marker: Marker,
     day: Day,
+    about: About,
   },
   enableFallbackComponent: true,
 });

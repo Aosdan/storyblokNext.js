@@ -8,5 +8,3 @@ export const Day = ({ blok }: { blok: StoryblokBlok }) => {
     <div {...storyblokEditable(blok as unknown as SbBlokData)} className="hidden" />
   );
 };
-
-
