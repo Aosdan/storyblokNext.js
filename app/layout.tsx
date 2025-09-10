@@ -69,7 +69,7 @@ export default function RootLayout({
       <body 
         className={`${geistSans.variable} ${geistMono.variable} ` }>
         <header className="bg-white">
-          <nav className="font-mono text-gray-600 font-bold container mx-auto px-50 pb-1 w-full py-4 flex justify-normal grid grid-flow-col justify-items-center ">
+          <nav className="font-sans text-gray-600 font-bold container mx-auto px-50 pb-1 w-full py-4 flex justify-normal grid grid-flow-col justify-items-center ">
             <Link className="p-2 rounded-xl hover:bg-gray-300 text-gray " href={"/"}>Home</Link>
             <Link className="p-2 rounded-xl  hover:bg-gray-300 text-gray " href={"/tours"}>Tours</Link>
             <Link className="p-2 rounded-xl  hover:bg-gray-300 text-gray " href={"/about"}>About</Link>

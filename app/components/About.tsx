@@ -4,13 +4,13 @@ import { renderRichText } from "@storyblok/react/rsc";
 
 export const About = ({ blok }: { blok: StoryblokBlok }) => {
     return (
-        <section {...storyblokEditable(blok as unknown as SbBlokData)} className="py-12 md:py-16">
+        <section {...storyblokEditable(blok as unknown as SbBlokData)} className="py-12 md:py-16 bg-white">
             <div className="max-w-3xl mx-auto px-10 sm:px-6 lg:px-8 p-10 text-gray-800 bg-white rounded-2xl border border-zinc-200 bg-white shadow-sm overflow-hidden">
                 {blok.headline && (
-                    <h3 className="text-2xl md:text-3xl font-semibold text-zinc-900">{blok.headline}</h3>
+                    <h3 className="pt-10 text-2xl md:text-3xl font-semibold text-zinc-900">{blok.headline}</h3>
                 )}
                 {typeof blok.content === 'string' ? (
-                    <p className="mt-4 text-zinc-700">{blok.content}</p>
+                    <p className=" mt-4 text-zinc-700">{blok.content}</p>
                 ) : (
                     <div
                         className="prose prose-zinc md:prose-lg mt-4 max-w-none"

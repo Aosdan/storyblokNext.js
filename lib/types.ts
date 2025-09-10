@@ -14,6 +14,7 @@ export interface StoryblokContent {
   body?: unknown; // Rich text content
   image?: StoryblokImage;
   main_image?: StoryblokImage;
+  images?: StoryblokImage[];
   price?: number;
   location?: string;
   comment?: string;

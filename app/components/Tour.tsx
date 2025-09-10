@@ -8,12 +8,12 @@ export const Tour = ({ blok }: { blok: StoryblokBlok }) => {
     const intro = (blok?.introduction ?? "") as string;
 
     return (
-        <main {...storyblokEditable(blok as unknown as SbBlokData)} className="w-full pt-20 md:pt-24 pb-20">
+        <main {...storyblokEditable(blok as unknown as SbBlokData)} className="w-full pt-20 md:pt-24 pb-20 bg-white shadow-sm overflow-hidden ">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                 <article className="rounded-2xl border border-zinc-200 bg-white shadow-sm overflow-hidden">
                     {imageSrc ? (
                         <Image
-                            className="w-full object-cover aspect-[16/9]"
+                            className="w-full object-cover aspect-[16/9] "
                             src={imageSrc}
                             alt={title}
                             width={1600}
@@ -28,7 +28,7 @@ export const Tour = ({ blok }: { blok: StoryblokBlok }) => {
                         )}
                         <div className="mt-8">
                             <div
-                                className="text-gray-800 prose prose-zinc md:prose-lg max-w-none"
+                                className="text-gray-800 prose prose-zinc md:prose-lg max-w-none" 
                                 dangerouslySetInnerHTML={{ __html: renderRichText(blok?.body as StoryblokRichTextNode<string | TrustedHTML>) ?? "" }}
                             />
                         </div>
