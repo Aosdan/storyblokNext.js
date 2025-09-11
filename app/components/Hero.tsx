@@ -1,6 +1,8 @@
 "use client";
 "use client";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import type { RollingGalleryProps } from "./RollingGalleryClient";
 import { useEffect, useRef, useState } from "react";
 import { StoryblokBlok } from "@/lib/types";
 import { SbBlokData, storyblokEditable } from "@storyblok/react";
@@ -23,6 +25,11 @@ export const Hero = ({ blok }: { blok: StoryblokBlok }) => {
     return () => clearInterval(id);
   }, [index, images.length]);
 
+  const RollingGallery = dynamic<RollingGalleryProps>(
+    () => import("./RollingGalleryClient"),
+    { ssr: false }
+  );
+
   return (
     <section 
     {...storyblokEditable(blok as unknown as SbBlokData)} className= "bg-white w-full pt-20 md:pt-24">
@@ -35,25 +42,12 @@ export const Hero = ({ blok }: { blok: StoryblokBlok }) => {
             )}
           </div>
           <div>
-            {images.length > 0 && (
-              <div ref={sliderRef} className="overflow-x-auto snap-x snap-mandatory no-scrollbar rounded-xl shadow-sm">
-                <div className="flex">
-                  {images.map((img, i) => (
-                    <div key={i} className="snap-start min-w-full">
-                      <Image
-                        src={img.filename}
-                        alt={img.alt || `slide-${i}`}
-                        width={1600}
-                        height={900}
-                        className="w-full h-[36vh] md:h-[48vh] object-cover rounded-xl"
-                        sizes="(min-width: 768px) 50vw, 100vw"
-                        priority={i === 0}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Replace previous slider with RollingGallery from reactbits */}
+            <RollingGallery
+              autoplay={true}
+              pauseOnHover={true}
+              images={images.map((img) => img.filename)}
+            />
           </div>
         </div>
       </div>
