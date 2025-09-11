@@ -35,7 +35,7 @@ export default function LeafletMap({
   }, []);
 
   return (
-    <MapContainer center={[centerLat, centerLng]} zoom={zoom} className="w-full h-[420px]">
+    <MapContainer center={[centerLat, centerLng]} zoom={zoom} className="w-full h-[320px]">
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution="&copy; OpenStreetMap contributors"

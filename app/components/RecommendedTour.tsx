@@ -8,21 +8,19 @@ export const RecommendedTour = ({ story }: { story: StoryblokStory }) => {
     const title = (story?.content?.name ?? story?.name ?? "Untitled") as string;
     const slug = story?.full_slug ?? story?.slug ?? "#";
     
-    // Debug: Log the story structure to understand the data
+    
     console.log("Story data:", JSON.stringify(story, null, 2));
     
-    // Try multiple possible image paths
+    
     let imageUrl = story?.content?.main_image?.filename || 
                    story?.content?.image?.filename ||
                    story?.content?.main_image ||
                    story?.content?.image;
     
-    // If we have an image URL but it doesn't start with https, prepend Storyblok CDN
     if (imageUrl && typeof imageUrl === 'string' && !imageUrl.startsWith('http')) {
         imageUrl = `https://a.storyblok.com${imageUrl}`;
     }
     
-    // Ensure imageUrl is a string for the Image component
     const finalImageUrl = typeof imageUrl === 'string' ? imageUrl : '';
     
     console.log("Final imageUrl:", finalImageUrl);

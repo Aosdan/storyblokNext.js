@@ -37,7 +37,7 @@ const initStoryblok = () => {
   };
 
   storyblokInit({
-    accessToken: token, // aus .env
+    accessToken: token,
     use: [apiPlugin],
     apiOptions: {
       fetch: cachedFetch,

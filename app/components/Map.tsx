@@ -10,12 +10,11 @@ type Marker = {
   lng: number;
 };
 
-// Lightweight map placeholder using an embedded map provider link (no extra deps)
 const LeafletMap = dynamic(() => import("./LeafletMap"), { ssr: false });
 
 export const Map = ({ blok }: { blok: StoryblokBlok & { markers?: Marker[]; zoom?: number } }) => {
   const markers = Array.isArray(blok.markers) ? blok.markers : [];
-  const centerLat = markers[0]?.lat ?? 25.0330; // Taipei default
+  const centerLat = markers[0]?.lat ?? 25.0330;
   const centerLng = markers[0]?.lng ?? 121.5654;
   const zoom = typeof blok.zoom === "number" ? blok.zoom : 12;
 
